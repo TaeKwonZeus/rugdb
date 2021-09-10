@@ -12,6 +12,6 @@ func fillDefaults(settings Settings) Settings {
 	return settings
 }
 
-var (
+const (
 	defaultPageSize = 0x1000
 )
