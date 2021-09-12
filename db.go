@@ -1,6 +1,6 @@
 package rugdb
 
-const magic uint32 = 0x52756744
+const magic = "RugDB"
 
 type DB struct {
 	file     *dataFile
@@ -12,7 +12,7 @@ func Open(path string) (*DB, error) {
 }
 
 func OpenWithSettings(path string, settings Settings) (*DB, error) {
-	var db *DB
+	db := &DB{}
 	var err error
 
 	db.settings = fillDefaults(settings)

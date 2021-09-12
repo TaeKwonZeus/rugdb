@@ -2,7 +2,6 @@ package rugdb
 
 import (
 	"bytes"
-	"encoding/binary"
 	"errors"
 	"os"
 )
@@ -38,10 +37,7 @@ func (d *dataFile) valid() (bool, error) {
 		return false, err
 	}
 
-	mag := make([]byte, 5)
-	binary.LittleEndian.PutUint32(mag, magic)
-
-	if !bytes.Equal(meta[:6], mag) {
+	if !bytes.Equal(meta[:6], []byte(magic)) {
 		return false, nil
 	}
 
